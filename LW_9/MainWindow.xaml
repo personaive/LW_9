@@ -1,0 +1,131 @@
+﻿<Window x:Class="LW_9.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="LineSegment — Лабораторная работа №9"
+        Height="700" Width="620"
+        ResizeMode="CanMinimize"
+        Background="#F5F5F5">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="20">
+
+            <TextBlock Text="LineSegment" FontSize="22" FontWeight="Bold"
+                       Foreground="#1A237E" Margin="0,0,0,4"/>
+            <TextBlock Text="Работа с отрезками на числовой прямой"
+                       FontSize="13" Foreground="#555" Margin="0,0,0,16"/>
+
+            <Border Background="White" CornerRadius="8" Padding="16"
+                    Margin="0,0,0,12" BorderBrush="#C5CAE9" BorderThickness="1">
+                <StackPanel>
+                    <TextBlock Text="Отрезок A  [x; y]" FontWeight="SemiBold"
+                               FontSize="14" Foreground="#3949AB" Margin="0,0,0,10"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="x:" VerticalAlignment="Center"
+                                   Margin="0,0,8,0" Grid.Column="0"/>
+                        <TextBox x:Name="TxtAx" Grid.Column="1" Margin="0,0,16,0"
+                                 Padding="6,4" FontSize="13"/>
+                        <TextBlock Text="y:" VerticalAlignment="Center"
+                                   Margin="0,0,8,0" Grid.Column="2"/>
+                        <TextBox x:Name="TxtAy" Grid.Column="3"
+                                 Padding="6,4" FontSize="13"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <Border Background="White" CornerRadius="8" Padding="16"
+                    Margin="0,0,0,16" BorderBrush="#C5CAE9" BorderThickness="1">
+                <StackPanel>
+                    <TextBlock Text="Отрезок B  [x; y]" FontWeight="SemiBold"
+                               FontSize="14" Foreground="#3949AB" Margin="0,0,0,10"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="x:" VerticalAlignment="Center"
+                                   Margin="0,0,8,0" Grid.Column="0"/>
+                        <TextBox x:Name="TxtBx" Grid.Column="1" Margin="0,0,16,0"
+                                 Padding="6,4" FontSize="13"/>
+                        <TextBlock Text="y:" VerticalAlignment="Center"
+                                   Margin="0,0,8,0" Grid.Column="2"/>
+                        <TextBox x:Name="TxtBy" Grid.Column="3"
+                                 Padding="6,4" FontSize="13"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <Border Background="White" CornerRadius="8" Padding="16"
+                    Margin="0,0,0,16" BorderBrush="#C5CAE9" BorderThickness="1">
+                <StackPanel>
+                    <TextBlock Text="Целое число для операции  –"
+                               FontWeight="SemiBold" FontSize="14"
+                               Foreground="#3949AB" Margin="0,0,0,10"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="n:" VerticalAlignment="Center"
+                                   Margin="0,0,8,0" Grid.Column="0"/>
+                        <TextBox x:Name="TxtN" Grid.Column="1"
+                                 Padding="6,4" FontSize="13"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <WrapPanel Margin="0,0,0,16">
+                <Button Content="Проверить пересечение (Intersects)" Click="BtnIntersects_Click"
+                        Margin="0,0,8,8" Padding="12,7" Background="#3949AB"
+                        Foreground="White" BorderThickness="0" FontSize="12"/>
+                <Button Content="Длина A  (!A)" Click="BtnLengthA_Click"
+                        Margin="0,0,8,8" Padding="12,7" Background="#00796B"
+                        Foreground="White" BorderThickness="0" FontSize="12"/>
+                <Button Content="Длина B  (!B)" Click="BtnLengthB_Click"
+                        Margin="0,0,8,8" Padding="12,7" Background="#00796B"
+                        Foreground="White" BorderThickness="0" FontSize="12"/>
+                <Button Content="Расширить A  (A++)" Click="BtnIncA_Click"
+                        Margin="0,0,8,8" Padding="12,7" Background="#F57C00"
+                        Foreground="White" BorderThickness="0" FontSize="12"/>
+                <Button Content="Расширить B  (B++)" Click="BtnIncB_Click"
+                        Margin="0,0,8,8" Padding="12,7" Background="#F57C00"
+                        Foreground="White" BorderThickness="0" FontSize="12"/>
+                <Button Content="A – n  (left –)" Click="BtnSubLeft_Click"
+                        Margin="0,0,8,8" Padding="12,7" Background="#6A1B9A"
+                        Foreground="White" BorderThickness="0" FontSize="12"/>
+                <Button Content="n – B  (right –)" Click="BtnSubRight_Click"
+                        Margin="0,0,8,8" Padding="12,7" Background="#6A1B9A"
+                        Foreground="White" BorderThickness="0" FontSize="12"/>
+                <Button Content="Приведение int A" Click="BtnCastInt_Click"
+                        Margin="0,0,8,8" Padding="12,7" Background="#37474F"
+                        Foreground="White" BorderThickness="0" FontSize="12"/>
+                <Button Content="Приведение double B" Click="BtnCastDouble_Click"
+                        Margin="0,0,8,8" Padding="12,7" Background="#37474F"
+                        Foreground="White" BorderThickness="0" FontSize="12"/>
+                <Button Content="A &lt; B  (пересечение)" Click="BtnLessOp_Click"
+                        Margin="0,0,8,8" Padding="12,7" Background="#C62828"
+                        Foreground="White" BorderThickness="0" FontSize="12"/>
+            </WrapPanel>
+
+            <Border Background="White" CornerRadius="8" Padding="16"
+                    BorderBrush="#C5CAE9" BorderThickness="1">
+                <StackPanel>
+                    <TextBlock Text="Результат" FontWeight="SemiBold"
+                               FontSize="14" Foreground="#1A237E" Margin="0,0,0,8"/>
+                    <TextBox x:Name="TxtResult" IsReadOnly="True"
+                             TextWrapping="Wrap" MinHeight="100"
+                             Background="#FAFAFA" BorderThickness="0"
+                             FontFamily="Consolas" FontSize="13" Padding="4"/>
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+    </ScrollViewer>
+</Window>
