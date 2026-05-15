@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 
 namespace LW_9
 {
@@ -59,8 +59,15 @@ namespace LW_9
 
         private void BtnIntersects_Click(object sender, RoutedEventArgs e)
         {
-            if (!TryParseSegment(TxtAx.Text, TxtAy.Text, "A", out LineSegment a)) return;
-            if (!TryParseSegment(TxtBx.Text, TxtBy.Text, "B", out LineSegment b)) return;
+            if (!TryParseSegment(TxtAx.Text, TxtAy.Text, "A", out LineSegment a))
+            {
+                return;
+            }
+
+            if (!TryParseSegment(TxtBx.Text, TxtBy.Text, "B", out LineSegment b))
+            {
+                return;
+            }
 
             bool result = a.Intersects(b);
             ShowResult($"A = {a}\nB = {b}\n\nПересекаются: {result}");
@@ -68,7 +75,10 @@ namespace LW_9
 
         private void BtnLengthA_Click(object sender, RoutedEventArgs e)
         {
-            if (!TryParseSegment(TxtAx.Text, TxtAy.Text, "A", out LineSegment a)) return;
+            if (!TryParseSegment(TxtAx.Text, TxtAy.Text, "A", out LineSegment a))
+            {
+                return;
+            }
 
             double length = !a;
             ShowResult($"A = {a}\n\n!A (длина) = {length}");
@@ -76,7 +86,10 @@ namespace LW_9
 
         private void BtnLengthB_Click(object sender, RoutedEventArgs e)
         {
-            if (!TryParseSegment(TxtBx.Text, TxtBy.Text, "B", out LineSegment b)) return;
+            if (!TryParseSegment(TxtBx.Text, TxtBy.Text, "B", out LineSegment b))
+            {
+                return;
+            }
 
             double length = !b;
             ShowResult($"B = {b}\n\n!B (длина) = {length}");
@@ -84,7 +97,10 @@ namespace LW_9
 
         private void BtnIncA_Click(object sender, RoutedEventArgs e)
         {
-            if (!TryParseSegment(TxtAx.Text, TxtAy.Text, "A", out LineSegment a)) return;
+            if (!TryParseSegment(TxtAx.Text, TxtAy.Text, "A", out LineSegment a))
+            {
+                return;
+            }
 
             LineSegment original = new LineSegment(a);
             LineSegment result = ++a;
@@ -93,7 +109,10 @@ namespace LW_9
 
         private void BtnIncB_Click(object sender, RoutedEventArgs e)
         {
-            if (!TryParseSegment(TxtBx.Text, TxtBy.Text, "B", out LineSegment b)) return;
+            if (!TryParseSegment(TxtBx.Text, TxtBy.Text, "B", out LineSegment b))
+            {
+                return;
+            }
 
             LineSegment original = new LineSegment(b);
             LineSegment result = ++b;
@@ -102,8 +121,14 @@ namespace LW_9
 
         private void BtnSubLeft_Click(object sender, RoutedEventArgs e)
         {
-            if (!TryParseSegment(TxtAx.Text, TxtAy.Text, "A", out LineSegment a)) return;
-            if (!TryParseN(out int n)) return;
+            if (!TryParseSegment(TxtAx.Text, TxtAy.Text, "A", out LineSegment a))
+            {
+                return;
+            }
+            if (!TryParseN(out int n))
+            {
+                return;
+            }
 
             LineSegment result = a - n;
             ShowResult($"A = {a}\nn = {n}\n\nA – n = {result}  (x уменьшен на {n})");
@@ -111,8 +136,14 @@ namespace LW_9
 
         private void BtnSubRight_Click(object sender, RoutedEventArgs e)
         {
-            if (!TryParseSegment(TxtBx.Text, TxtBy.Text, "B", out LineSegment b)) return;
-            if (!TryParseN(out int n)) return;
+            if (!TryParseSegment(TxtBx.Text, TxtBy.Text, "B", out LineSegment b))
+            {
+                return;
+            }
+            if (!TryParseN(out int n))
+            {
+                return;
+            }
 
             LineSegment result = n - b;
             ShowResult($"B = {b}\nn = {n}\n\nn – B = {result}  (y уменьшен на {n})");
@@ -120,7 +151,10 @@ namespace LW_9
 
         private void BtnCastInt_Click(object sender, RoutedEventArgs e)
         {
-            if (!TryParseSegment(TxtAx.Text, TxtAy.Text, "A", out LineSegment a)) return;
+            if (!TryParseSegment(TxtAx.Text, TxtAy.Text, "A", out LineSegment a))
+            {
+                return;
+            }
 
             int result = a;
             ShowResult($"A = {a}\n\n(int)A (целая часть x) = {result}");
@@ -128,7 +162,10 @@ namespace LW_9
 
         private void BtnCastDouble_Click(object sender, RoutedEventArgs e)
         {
-            if (!TryParseSegment(TxtBx.Text, TxtBy.Text, "B", out LineSegment b)) return;
+            if (!TryParseSegment(TxtBx.Text, TxtBy.Text, "B", out LineSegment b))
+            {
+                return;
+            }
 
             double result = (double)b;
             ShowResult($"B = {b}\n\n(double)B (координата y) = {result}");
@@ -136,8 +173,14 @@ namespace LW_9
 
         private void BtnLessOp_Click(object sender, RoutedEventArgs e)
         {
-            if (!TryParseSegment(TxtAx.Text, TxtAy.Text, "A", out LineSegment a)) return;
-            if (!TryParseSegment(TxtBx.Text, TxtBy.Text, "B", out LineSegment b)) return;
+            if (!TryParseSegment(TxtAx.Text, TxtAy.Text, "A", out LineSegment a))
+            {
+                return;
+            }
+            if (!TryParseSegment(TxtBx.Text, TxtBy.Text, "B", out LineSegment b))
+            {
+                return;
+            }
 
             bool result = a < b;
             ShowResult($"A = {a}\nB = {b}\n\nA < B = {result}  " +
